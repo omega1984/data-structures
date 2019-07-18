@@ -15,7 +15,7 @@ treeMethods.addChild = function(value) {
 
 treeMethods.contains = function(target) {
   var result = false;
-  function helper(node){
+  function helper(node) {
     if (node.value === target){
       result = true;
     }
@@ -33,4 +33,6 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+addChild() O(1)
+contains() O(n)
  */
