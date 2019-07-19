@@ -58,6 +58,8 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+
+ all O(1) except the last one which is O(n);
  */
 
 
