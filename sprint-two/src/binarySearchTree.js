@@ -1,19 +1,23 @@
 var BinarySearchTree = function(value) {
-  this.value = value;
-  this.left = null;
-  this.right = null;
+  var BST = Object.create(BSTMethods);
+  BST.value = value;
+  BST.left = null;
+  BST.right = null;
+  return BST;
 };
 
-BinarySearchTree.prototype.insert = function(val) {
+var BSTMethods = {};
+
+BSTMethods.insert = function(val) {
   if (val < this.value) {
     if (!this.left){
-      this.left = new BinarySearchTree(val);
+      this.left = BinarySearchTree(val);
     }else{
       this.left.insert(val);
     }
   }else if (val > this.value){
     if (!this.right){
-      this.right = new BinarySearchTree(val);
+      this.right = BinarySearchTree(val);
     }else{
       this.right.insert(val);
     }
@@ -22,7 +26,7 @@ BinarySearchTree.prototype.insert = function(val) {
   }
 };
 
-BinarySearchTree.prototype.contains = function(val) {
+BSTMethods.contains = function(val) {
   if (val === this.value){
     return true;
   }else if (val < this.value){
@@ -40,7 +44,7 @@ BinarySearchTree.prototype.contains = function(val) {
   }
 };
 
-BinarySearchTree.prototype.depthFirstLog = function(callback) {
+BSTMethods.depthFirstLog = function(callback) {
   callback(this.value)
   if (this.left){
     this.left.depthFirstLog(callback);
@@ -50,9 +54,6 @@ BinarySearchTree.prototype.depthFirstLog = function(callback) {
   }
 };
 
-// var binarySearchTree = new BinarySearchTree(10);
-// binarySearchTree.insert(3);
-// binarySearchTree.insert(5);
 /*
  * Complexity: What is the time complexity of the above functions?
  */
