@@ -3,28 +3,28 @@ var Queue = function() {
 
   // Use an object with numeric keys to store values
   var storage = {};
-  var max = 0;
-  var min = 0;
+  var add = 0;
+  var del = 0;
   // Implement the methods below
 
   someInstance.enqueue = function(value) {
-    storage[max] = value;
-    max++;
+    storage[add] = value;
+    add++;
   };
 
   someInstance.dequeue = function() {
-    if (max > min){
-      var deletedItem = storage[min];
-      delete storage[min];
-      min++;
-    }else if (min >= max){
+    if (add > del){
+      var deletedItem = storage[del];
+      delete storage[del];
+      del++;
+    }else if (del >= add){
       return -1;
     }
     return deletedItem;
   };
 
   someInstance.size = function() {
-    return max - min;
+    return add - del;
   };
 
   return someInstance;
