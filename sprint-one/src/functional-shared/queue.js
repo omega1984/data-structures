@@ -25,5 +25,3 @@ queueMethods.dequeue = function(){
 queueMethods.size = function(){
   return this.max - this.min;
 };
-
-
