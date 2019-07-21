@@ -1,20 +1,18 @@
-
-
 var HashTable = function() {
   this._limit = 8;
   this._storage = LimitedArray(this._limit);
 };
 
 HashTable.prototype.insert = function(k, v) {
-  // k is the string, v is the length of string;
-  // we pass k and v into hash function to get a unique code;
-  // unique code indicates the location of the bucket that we are going to store in the array;
   var index = getIndexBelowMaxForKey(k, this._limit);
+  // container.get(index) returns a value at index;
   var container = this._storage;
   if (!container.get(index)){
+    // check if there isn't a bucket, if no bucket, then create a bucket with a tuple of k, v in it and insert it into the array using .set method;
     var bucket = [[k, v]];
     container.set(index, bucket);
   }else{
+    // container.get(index) returns a value at index;
     var existBucket = container.get(index);
     for (var i = 0; i < existBucket.length; i++){
       if (existBucket[i][0] === k){
