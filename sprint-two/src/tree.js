@@ -25,7 +25,7 @@ treeMethods.contains = function(target) {
       });
     }
   }
-  helper(this);
+  helper(this);  // 'this' is the root;
   return result;
 };
 
